@@ -1,3 +1,2 @@
-TARGET		= vol2
-
+TARGET = vol2
 include commons/Makefile.include
