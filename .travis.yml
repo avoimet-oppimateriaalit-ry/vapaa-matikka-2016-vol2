@@ -1,0 +1,19 @@
+language: latex
+install:
+  - ./commons/latex-install-scripts/install_latex
+  - export PATH=/usr/local/texlive/2014/bin/x86_64-linux:$PATH
+script: make
+
+before_deploy: "mkdir build ; mv vol2.pdf build/vol2-`TZ='Europe/Helsinki' date +%Y-%m-%d`-`git show-ref --hash=7 HEAD`.pdf"
+
+deploy:
+  provider: s3
+  bucket: vapaa-matikka
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_ACCESS_KEY_SECRET
+  skip_cleanup: true
+  region: eu-west-1
+  local-dir: build
+  upload-dir: 2016-vol2
+  on:
+    branch: master
