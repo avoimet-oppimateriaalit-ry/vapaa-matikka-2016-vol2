@@ -1,0 +1,170 @@
+\section{Pythagoraan lause}
+
+Pythagoraan lause on eräs vanhimmista matemaattisista lauseista. Sille tunnetaan monia eri todistuksia, joista kaksi yksinkertaista esitellään seuraavaksi.
+
+\laatikko{
+	\termi{Pythagoraan lause}{Pythagoraan lause}. Olkoot suorakulmaisen kolmion kateettien pituudet $a$ ja $b$, ja hypotenuusan pituus $c$. Tällöin pätee
+	\[
+	a^2 + b^2 = c^2
+	\] 
+	}
+%	\begin{center}
+%\begin{kuva}
+%skaalaa(2)
+%	A=geom.piste(0,0)
+%	B=geom.piste(0,2)
+%	C=geompiste.(1,0)
+%	D=geom.piste(0.1,0.1)
+%	E=geom.piste(0,0.1)
+%	F=geom.piste(0.1,0)
+%
+%	geom.jana(B,A,"$a$")
+%	geom.jana(C,B,r"$c$")
+%	geom.jana(A,C,"$b$")
+%	geom.jana(E,D)
+%	geom.jana(D,F)
+%\end{kuva}
+%\end{center}
+
+Sama pätee myös käänteiseen suuntaan eli jos kolmion sivujen pituuden toteuttavat ehdon $a^2 + b^2 = c^2$, niin kolmio on suorakulmainen. Pythagoraan lause voidaan luokitella \termi{potenssiyhtälö}{potenssiyhtälöksi}. (Potenssiyhtälöitä opeteltiin ratkaisemaan edellisillä kursseilla.) Tavallisesti kahta lyhyempää sivua, kateettia (niiden pituutta) merkataan $a$:lla ja $b$:llä, ja hypotenuusan pituutta $c$:llä kuten kuvassa. Yhtälön ratkaisun kannalta olennaista on, että geometrian sovelluksissa emme hyväksy yhtälön negatiivisia juuria, koska pituudet, pinta-alat ja tilavuudet ovat positiivisia.
+
+\textbf{Pythagoraan lauseen todistus}. Olkoot $A$, $B$ ja $C$ suorakulmaisen kolmion kärjet niin, että kulma $\angle ACB$ on suora. Olkoon piste $D$ sellainen janan $AB$ piste, jolle $\angle CDA$ on suora.
+
+	\begin{center}
+\begin{kuva}
+skaalaa(3)
+A = geom.piste(0, 0, "$A$", suunta = -135)
+B = geom.piste(2, 0, "$B$")
+C = geom.ympyranKehapiste(geom.ympyra((1, 0), 1, piirra = False), 70, "$C$", suunta = 90)
+
+AB = geom.jana(A, B)
+geom.jana(B, C)
+geom.jana(C, A)
+
+geom.suorakulma(A, C, B)
+
+D = geom.projektio(C, AB, "$D$", suunta = -90)
+geom.jana(C, D)
+
+geom.suorakulma(C, D, A)
+\end{kuva}
+\end{center}
+
+Tällöin kolmioilla $ABC$ ja $ACD$ on yhteinen kulma $\angle A$ ja molemmissa on suora kulma, joten ne ovat yhdenmuotoiset (kk). Samoin kolmioilla $ABC$ ja $CBD$ on yhteinen kulma $\angle B$ ja molemmissa on suora kulma, joten nekin ovat yhdenmuotoiset (kk)
+
+Yhdenmuotoisuuksista saadaan, että
+\[
+\frac{AB}{AC} = \frac{AC}{AD}
+\]
+ja
+\[
+\frac{AB}{CB} = \frac{CB}{DB}.
+\]
+
+Ristiinkertomalla saadaan, että
+\[
+AB \cdot AD = AC^2
+\]
+ja
+\[
+AB \cdot DB = CB^2.
+\]
+Laskemalla nämä saadut yhtälöt yhteen saadaan
+
+\begin{align*}
+AC^2 + CB^2  = AB \cdot AD + AB \cdot DB \\
+AC^2 + CB^2  = AB(AD + DB) \\
+AC^2 + CB^2  = AB^2.
+\end{align*}
+Tämä on täsmälleen Pythagoraan lause. $\square $
+
+\begin{esimerkki}
+Määritä oheisen suorakulmaisen kolmion hypotenuusan pituus.
+\begin{center}
+\begin{kuva}
+	skaalaa(1)
+
+	A=(0,0)
+	B=(0,1)
+	C=(2,0)
+	D=(0.1,0.1)
+	E=(0,0.1)
+	F=(0.1,0)
+
+	geom.jana(B,A,"$3$")
+	geom.jana(C,B,"$c$")
+	geom.jana(A,C,"$4$")
+	geom.jana(E,D)
+	geom.jana(D,F)
+\end{kuva}
+\end{center}
+
+\begin{esimratk}
+Kateettien pituudet ovat $a=3$ ja $b=4$, ja tuntematonta hypotenuusaa on merkitty $c$:llä. (Sinänsä ei ole väliä, kumpaa kateettia merkataan milläkin kirjaimella.) Pythagoraan lauseesta saadaan:
+
+\begin{align*}
+a^2+b^2 &= c^2  && || \text{sijoitetaan tehtävänannon arvot kaavaan} \\
+3^2+4^2 &= c^2 && || \text{sievennetään yhtälön vasenta puolta} \\
+9+16 &= c^2 && \\
+25 &= c^2 && || \sqrt{} \\
+5 &= c &&
+\end{align*}
+
+Hyväksymme vain positiivisen juuren, koska pituudet eivät voi olla negatiivisia.
+
+\end{esimratk}
+	\begin{esimvast}
+Kolmion hypotenuusan pituus on $5$ (pituusyksikköä).
+	\end{esimvast}
+\end{esimerkki}
+
+\begin{esimerkki}
+Taulutelevision kooksi (lävistäjäksi) on ilmoitettu mainoksessa $46,0$ tuumaa ($116,8$ cm) ja kuvasuhteeksi $16:9$. Kuinka leveä televisio on senttimetreinä?
+
+%FIXME: KIMMON KUVITUSKUVA!
+	\begin{esimratk}
+Taulutelevision halkaisija, alareuna ja toinen sivu muodostavat suorakulmaisen kolmion. Kolmion hypotenuusa ($c$) on television halkaisija ja kateetit ($a$ ja $b$) alareuna ja toinen sivu. Kuvasuhteen perusteella kateettien pituuksia voidaan merkitä $16x$ ja $9x$, missä $x$ esittää pienintä sivujen yhteistä mittaa. Sivuja ei voida merkitä suoraan $16$ ja $9$, koska nämä eivät ole oikeita pituuksia vaan vain suhteita. Pythagoraan lauseesta ($c^2 = a^2 + b^2$) saadaan
+\[
+116,8^2 = (16x)^2 + (9x)^2
+\]
+\[
+13\,642,24 = (256+81)x^2.
+\]
+\[
+x^2 = \frac{13\,642,24}{337}
+\]
+\[
+x= \sqrt{\frac{13\,642,24}{337}} \approx 6,36.
+\]
+Television leveys on noin $16x = 16\cdot 6,36\approx 102$\,cm.
+	\end{esimratk}
+	\begin{esimvast}
+	Noin $102$\,cm
+	\end{esimvast}
+\end{esimerkki}
+
+\begin{esimerkki}
+	Maalari maalaa taloa. Hänellä on tikapuut, joiden pituus on $3,0$ metriä. Maalarin on noustava $2,5$ metrin korkeuteen voidakseen maalata katonrajan sinipunaiseksi. Kuinka lähelle seinää hänen on asetettava tikapuiden alapää?
+	\begin{esimratk}
+		Tikapuut ja seinä muodostavat suorakulmaisen kolmion, jonka hypotenuusa on tikapuut ja toinen kateetti on seinä. Merkitään $x$:llä tikapuiden etäisyyttä seinästä metreinä ja sovelletaan Pythagoraan lausetta.
+		\begin{align*}
+		x^2 + 2,5^2 &= 3,0^2 \\
+		x^2 + 6,25 &= 9,0 \\
+		x^2 &= 2,75 \\
+		x &= \pm \sqrt{2,75} \approx \pm 1,7
+		\end{align*}
+		Koska $x$ on etäisyys seinästä, negatiivinen ratkaisu ei kelpaa.
+		\begin{esimvast}
+		Alle $1,7$ metrin päähän seinästä. 
+		\end{esimvast}
+	\end{esimratk}
+\end{esimerkki}
+
+%\begin{esimerkki}
+%$\star$ Suorakulmion muotoisen levyn mitat ovat $230\,\text{cm}\times 250\,\text{cm}$. Mahtuuko se sisään oviaukosta, joka on $90$\,cm leveä ja $205$\,cm korkea?
+%
+%        Ei mahdu. Suurin mahdollinen levy, joka mahtuu ovesta sisään on Pythagoraan lauseen perusteella leveydeltään $\sqrt{90^2+205^2}\approx 224$\,cm.
+%
+%\end{esimerkkki}
+
+%FIXME Kuva ois kiva esimerkkiin, piirroskuva, jossa tikapuut ois vielä kivempi, tulossa

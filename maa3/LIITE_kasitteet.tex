@@ -1,0 +1,314 @@
+\section*{Piste ja suora}
+
+Monet seuraavista käsitteistä on esitelty jo peruskoulussa, mutta palautetaan ne lyhyesti
+mieleen.
+
+Tasogeometrian peruskäsitteet ovat \termi{piste}{piste} ja \termi{suora}{suora}, joita ei
+määritellä sen tarkemmin. Geometrian piste ja suora vastaavat intuitiivista käsitystä.
+Piste ja suora ovat idealisoituja käsitteitä: pisteen pinta-ala on nolla, samoin suoran leveys.
+
+Pisteitä merkitään useimmiten isoilla kirjaimilla, esim. $A$, $B$, $P$. Suoria merkitään useimmiten pienillä kirjamilla, esim. $l$, $s$. Suora voidaan nimetä myös kahden pisteensä mukaan, esimerkiksi suoraa, joka sisältää pisteet $A$ ja $B$ voidaan kutsua suoraksi $AB$ tai $BA$.
+
+Suoralla oleva piste jakaa suoran kahdeksi \termi{puolisuora}{puolisuoraksi}. Huomaa, että tämä puolisuoran
+alkupiste kuuluu kumpaankin puolisuoraan. Kaksi suoralla olevaa pistettä erottavat suorasta
+\termi{jana}{janan}, ja nämä kaksi pistettä ovat janan päätepisteet.
+
+Pisteiden $A$ ja $B$ välistä janaa kutsutaan janaksi $AB$. Puolisuorat nimetään päätepisteen ja toisen puolisuoran pisteen mukaan. Siis puolisuora $AB$ on se puolisuora, jonka päätepiste on $A$ ja johon kuuluu toinen piste $B$.
+
+\begin{esimerkki}
+Suora $s$ sisältää pisteet $A$, $B$ ja $P$ mutta ei pistettä $C$. Suora $l$ sisältää pisteet $B$ ja $C$ mutta ei pisteitä $A$ ja $P$. Suoraa $s$ voidaan kutsua myös suoraksi $AB$, $AP$ tai $BP$. Koska suoralla ei ole suuntaa, niin myös $BA$, $PA$ ja $PB$ ovat nimityksiä samalla suoralle.
+
+Piste $B$ jakaa suoran $s$ kahteen puolisuoraan, toinen sisältää pisteen $A$ ja toinen pisteen $P$. Näitä puolisuoria voidaan kutsua esimerkiksi puolisuoriksi $BA$ ja $BP$.
+
+\begin{center}
+\begin{kuva}
+	rajaa(minX = -4, maxX = 4, minY = -2, maxY = 6)
+	A = geom.piste(-3, 0, "$A$", suunta = -60)
+	B = geom.piste(1, 2, "$B$", suunta = 80)
+	C = geom.piste(-2, 5, "$C$", suunta = 50)
+	P = geom.piste(3, 3, "$P$", suunta = -60)
+	s = geom.suora(A, B, "$s$")
+	l = geom.suora(B, C, "$l$")
+\end{kuva}
+\end{center}
+\end{esimerkki}
+
+Kaksi suoraa voivat joko olla sama suora, leikata toisiaan täsmälleen yhdessä pisteessä tai olla leikkaamatta toisiaan. Mikäli kaksi suoraa eivät leikkaa toisiaan tai ovat sama suora, niiden sanotaan olevan \termi{yhdensuuntaiset suorat}{yhdensuuntaiset}.
+
+\begin{esimerkki} %Mikä on tämän esimerkin idea?
+Suorat $l$ ja $s$ leikkaavat pisteessä $X$. Suorat $l$ ja $t$ leikkaavat pisteessä $Y$. Suorat $s$ ja $t$ ovat yhdensuuntaiset.
+
+\begin{center}
+\begin{kuva}
+	rajaa(minX = -3, maxX = 2, minY = -2, maxY = 2)
+	s = geom.suoraSuuntaan((-1, -1), 4, 1, "$s$", kohta = 0.7)
+	l = geom.suoraSuuntaan((-1, -1), 1, 4, "$l$", kohta = -0.2)
+	t = geom.suoraSuuntaan((0, 1), 4, 1, "$t$")
+	X = geom.leikkauspiste(l, s, "$X$", suunta = 120)
+	Y = geom.leikkauspiste(l, t, "$Y$", suunta = 120)
+\end{kuva}
+\end{center}
+\end{esimerkki}
+
+
+\section*{Kulma}
+
+Kaksi puolisuoraa, joilla on yhteinen alkupiste, jakavat tason kahteen osaan ja rajaavat siten kaksi \termi{kulma}{kulmaa}. Yhteistä alkupistettä
+kutsutaan kulman kärjeksi ja puolisuoria kulman kyljiksi. Kulman sisälle jäävää tasoaluetta
+kutsutaan kulman aukeamaksi.
+
+\begin{center}
+\begin{kuva}
+	skaalaa(0.5)
+	A = (4, -3)
+	B = geom.piste(0, 0, r"k\"{a}rki", suunta = 180)
+	C = (4, 3)
+	geom.jana(B, A, "oikea kylki", kohta = 0.8)
+	geom.jana(B, C, "vasen kylki", puoli = False, kohta = 0.8)
+	geom.kulma(A, B, C, "aukeama")
+\end{kuva}
+\end{center}
+
+Kulman suuruutta on tähän mennessä mitattu \termi{aste}{asteilla} (merkitään symbolilla~$^{\circ}$). Jos kulman kyljet muodostavat suoran,
+kulmaa sanotaan oikokulmaksi, ja sen suuruus on $180^{\circ}$.
+Jos kulman kyljet ovat sama puolisuora, niin kulma on täysikulma ($360^{\circ}$), jos aukeamaksi lasketaan
+koko taso. Jos taas kulman aukeama on pelkästään tämä puolisuora, kulmaa sanotaan
+nollakulmaksi ($0^{\circ}$).
+
+Toisinaan asteet jaetaan vielä minuutteihin ja sekunteihin. Yksi aste on $60$ minuuttia ja
+yksi minuutti on $60$ sekuntia ($1^{\circ} = 60^{\prime}$ ja $1^{\prime} = 
+60^{\prime \prime}$).
+Käytössä on myös muitakin tapoja mitata kulmia. Erityisen tärkeä asema on radiaaneilla, jotka
+ovat monissa tilanteissa luonteva tapa mitata kulmia vastaavien kaarten pituuksilla. Radiaaneihin
+tutustutaan tarkemmin kurssilla Trigonometriset funktiot ja lukujonot.
+
+\laatikko{
+Huomautus!
+Kannattaa aina tarkistaa, mitä kulmayksikköä laskimesi käyttää. Käyttöohjeesta käy ilmi,
+miten voit halutessasi vaihtaa yksikön asteiksi tai radiaaneiksi.
+}
+
+Jos kulma on
+suuruudeltaan oikokulman ja täysikulman välissä, kulma on \termi{kupera kulma}{kupera}. Jos taas kulma on pienempi
+kuin oikokulma mutta suurempi kuin nollakulma, se on \termi{kovera kulma}{kovera} kulma.
+
+Koverat kulmat voidaan jakaa kolmeen eri tyyppiin. Kulmaa, joka on suuruudeltaan puolet
+oikokulmasta, kutsutaan suoraksi kulmaksi. Suoraa kulmaa pienemmät kulmat ovat \termi{terävä kulma}{teräviä} kulmia ja suoraa kulmaa suuremmat kulmat ovat \termi{tylppä kulma}{tylppiä} kulmia.
+
+\begin{minipage}{3cm}
+\begin{kuva}
+skaalaa(1.5); rajaa(minX = -1, minY = -0.5, maxX = 1, maxY = 1); varaaRajaus()
+A = (sin(1), cos(1))
+B = (0, 0); C = (-A[0], A[1]); geom.jana(B, A); geom.jana(B, C); geom.kulma(A, B, C, r"$\alpha$")
+\end{kuva}
+\centering kovera kulma \\$0^\circ < \alpha < 180^\circ$
+\end{minipage}
+\begin{minipage}{3cm}
+\begin{kuva}
+skaalaa(1.5); rajaa(minX = -1, minY = -0.5, maxX = 1, maxY = 1); varaaRajaus()
+A = (sin(pi-1), cos(pi-1))
+B = (0, 0); C = (-A[0], A[1]); geom.jana(B, A); geom.jana(B, C); geom.kulma(A, B, C, r"$\alpha$")
+\end{kuva}
+\centering kupera kulma \\$180^\circ < \alpha < 360^\circ$
+\end{minipage}
+\begin{minipage}{3cm}
+\begin{kuva}
+skaalaa(1.5); rajaa(minX = -1, minY = -0.5, maxX = 1, maxY = 1); varaaRajaus()
+A = (sin(0.5), cos(0.5))
+B = (0, 0); C = (-A[0], A[1]); geom.jana(B, A); geom.jana(B, C); geom.kulma(A, B, C, r"$\alpha$")
+\end{kuva}
+\centering terävä kulma \\$0^\circ < \alpha < 90^\circ$
+\end{minipage}
+\begin{minipage}{3cm}
+\begin{kuva}
+skaalaa(1.5); rajaa(minX = -1, minY = -0.5, maxX = 1, maxY = 1); varaaRajaus()
+A = (sin(1), cos(1))
+B = (0, 0); C = (-A[0], A[1]); geom.jana(B, A); geom.jana(B, C); geom.kulma(A, B, C, r"$\alpha$")
+\end{kuva}
+\centering tylppä kulma \\$90^\circ < \alpha < 180^\circ$
+\end{minipage}
+
+\begin{minipage}{3cm}
+\begin{kuva}
+skaalaa(1.5); rajaa(minX = -1, minY = -0.5, maxX = 1, maxY = 1); varaaRajaus()
+A = (sin(pi/4), cos(pi/4))
+B = (0, 0); C = (-A[0], A[1]); geom.jana(B, A); geom.jana(B, C); geom.suorakulma(A, B)
+\end{kuva}
+\centering suora kulma \\$\alpha = 90^\circ$
+\end{minipage}
+\begin{minipage}{3cm}
+\begin{kuva}
+skaalaa(1.5); rajaa(minX = -1, minY = -0.5, maxX = 1, maxY = 1); varaaRajaus()
+A = (sin(pi/2), cos(pi/2))
+B = geom.piste(0, 0); C = (-A[0], A[1]); geom.jana(B, A); geom.jana(B, C); geom.kulma(A, B, C, r"$\alpha$")
+\end{kuva}
+\centering oikokulma \\$\alpha = 180^\circ$
+\end{minipage}
+\begin{minipage}{3cm}
+\begin{kuva}
+skaalaa(1.5); rajaa(minX = -1, minY = -0.5, maxX = 1, maxY = 1); varaaRajaus()
+O = geom.piste(0, 0)
+geom.jana(O, (0, 1))
+\end{kuva}
+\centering nollakulma \\$\alpha = 0^\circ$
+\end{minipage}
+\begin{minipage}{3cm}
+\begin{kuva}
+skaalaa(1.5); rajaa(minX = -1, minY = -1, maxX = 1, maxY = 0.5); varaaRajaus()
+A = (sin(pi - 0.001), cos(pi - 0.001))
+B = geom.piste(0, 0); C = (-A[0], A[1]); geom.jana(B, A); geom.jana(B, C); geom.kulma(A, B, C, r"$\alpha$")
+\end{kuva}
+\centering täysikulma \\$\alpha = 360^\circ$
+\end{minipage}
+
+Mikäli kulman oikealla kyljellä oleva piste, kärkipiste ja vasemmalla kyljellä oleva piste on nimetty kirjaimella, voidaan kulmaa merkitä kirjoittamalla kirjaimet peräkkäin. Esimerkiksi kulma $\angle ABC$ merkitsee sellaista kulmaa, jonka kärkipiste on $B$ ja $A$ sijaitsee sen oikealla kyljellä ja $C$ vasemmalla. Sopimus, että oikea kylki merkitään ensin ei ole aina käytössä, siis joskus merkinnällä $\angle ABC$ voidaan tarkoittaa kulmaa $\angle CBA$.
+
+\begin{esimerkki}
+\begin{center}
+\begin{kuva}
+	A = geom.piste(1, -1, "$A$")
+	B = geom.piste(0, 0, "$B$", suunta = 180)
+	C = geom.piste(1, 1, "$C$")
+	geom.jana(B, A)
+	geom.jana(B, C)
+	geom.kulma(A, B, C, r"$\alpha$")
+	
+	D = geom.piste(3, -1, "$D$", suunta = 180)
+	E = geom.piste(4, 0, "$E$", suunta = 180)
+	F = geom.piste(3, 1, "$F$", suunta = 180)
+	geom.jana(E, D)
+	geom.jana(E, F)
+	geom.kulma(D, E, F, r"$\beta$")
+\end{kuva}
+\end{center}
+\[
+\begin{array}{cc}
+\displaystyle \angle ABC = \alpha, &
+\displaystyle \angle DEF = \beta.
+\end{array}
+\]
+\end{esimerkki}
+
+\subsection*{Kulmien summa}
+
+Kun kulmat joiden suuruudet ovat $\alpha$ ja $\beta$ asetetaan vierekkäin, muodostuu kulma, jonka suuruus on $\alpha + \beta$.
+
+\begin{center}
+\begin{kuva}
+	skaalaa(2)
+	
+	f = lambda x: (cos(pi * x / 180), sin(pi * x / 180))
+	A = f(30)
+	B = f(105)
+	C = f(145)
+	O = (0, 0)
+	
+	geom.jana(O, A)
+	geom.jana(O, B)
+	geom.jana(O, C)
+	
+	geom.kulma(A, O, B, r"$\beta$")
+	geom.kulma(B, O, C, r"$\alpha$", kasvata = 0.1)
+	geom.kulma(A, O, C, r"$\alpha + \beta$", kasvata = 0.6, suunta = 82)
+\end{kuva}
+\end{center}
+
+Jos $\alpha > \beta$, voidaan muodostaa kulma jonka suuruus on $\alpha - \beta$ asettamalla kulma, jonka suuruus on $\beta$ kulman, jonka suuruus on $\alpha$ sisäpuolelle siten että toiset kyljet yhtyvät.
+
+\begin{center}
+\begin{kuva}
+	skaalaa(2)
+	
+	f = lambda x: (cos(pi * x / 180), sin(pi * x / 180))
+	A = f(30)
+	B = f(105)
+	C = f(145)
+	O = (0, 0)
+	
+	geom.jana(O, A)
+	geom.jana(O, B)
+	geom.jana(O, C)
+	
+	geom.kulma(B, O, C, r"$\beta$", kasvata = 0.7)
+	geom.kulma(A, O, C, r"$\alpha$", suunta = 80)
+	geom.kulma(A, O, B, r"$\alpha - \beta$", kasvata = 0.6)
+\end{kuva}
+\end{center}
+
+\subsection*{Vierus- ja ristikulmat}
+Kahta vierekkäistä kulmaa, joiden toiset kyljet yhtyvät ja toiset muodostavat suoran, kutsutaan \termi{vieruskulma}{vieruskulmiksi}. Koska ne muodostavat yhdessä oikokulman, niiden suuruuksien summa on $180^\circ$. 
+\begin{center}
+\begin{kuva}
+	skaalaa(2)
+	
+	O = (0, 0)
+	A = (1, 0)
+	B = (cos(1), sin(1))
+	C = (-1, 0)
+	
+	geom.jana(O, A)
+	geom.jana(O, B)
+	geom.jana(O, C)
+	
+	geom.kulma(A, O, B)
+	geom.kulma(B, O, C)
+\end{kuva}
+\end{center}
+
+Kahden suoran leikkauspisteeseen muodostuvia vastakkaisia kulmia kutsutaan \termi{ristikulma}{ristikulmiksi}. Ne ovat yhtä suuret.
+\begin{center}
+\begin{kuva}
+	O = (0, 0)
+	A = (2, -1)
+	B = (2, 1)
+	C = (-2, 1)
+	D = (-2, -1)
+	
+	geom.jana(O, A)
+	geom.jana(O, B)
+	geom.jana(O, C)
+	geom.jana(O, D)
+	
+	geom.kulma(A, O, B, r"$\alpha$", kasvata = 0.1)
+	geom.kulma(B, O, C, r"$\beta$")
+	geom.kulma(C, O, D, r"$\gamma$", kasvata = 0.1)
+\end{kuva}
+\end{center}
+Ristikulmien yhtäsuuruus voidaan perustella todistaa huomaamalla, että koska $\alpha$ ja $\beta$ ovat vieruskulmia ja lisäksi $\beta$ ja $\gamma$ ovat vieruskulmia, $\alpha = 180^\circ - \beta$ ja $\gamma = 180^\circ - \beta$ eli $\alpha = \gamma$.
+
+\subsection*{Samankohtaiset kulmat}
+Mikäli kahdella kulmalla on joko vasemmat kyljet samalla suoralla tai oikeat kyljet samalla suoralla, kutsutaan kulmia \termi{samankohtaiset kulmat}{samankohtaisiksi kulmiksi}.
+
+\begin{esimerkki}
+\begin{kuva}
+	rajaa(minX = -4, maxX = 2, minY = -2, maxY = 4)
+	
+	A = (-2, -3)
+	B = (-1, 4)
+	C = (-4, 1)
+	D = (3, 3)
+	E = (-4, 0)
+	F = (7, 1)
+	
+	l = geom.suora(A, B, "$l$", kohta = 0.2)
+	s = geom.suora(C, D, "$s$", kohta = 0.8)
+	t = geom.suora(E, F, "$t$")
+	
+	P = geom.leikkauspiste(l, s, piirra = False)
+	Q = geom.leikkauspiste(l, t, piirra = False)
+	
+	geom.kulma(D, P, B)
+	geom.kulma(C, P, Q)
+	geom.kulma(F, Q, P)
+	geom.kulma(E, Q, A)
+\end{kuva}
+
+Kuvaan merkityt kulmat ovat pareittain samankohtaisia, koska kaikkien kulmien oikea kylki on suoralla $l$.
+\end{esimerkki}
+
+Samankohtaiset kulmat liittyvät suorien yhdensuuntaisuuteen seuraavalla lauseella:
+\laatikko{
+	Kaksi suoraa ovat yhdensuuntaiset, jos ja vain jos samankohtaiset kulmat, jotka muodostuvat kun suoria leikataan kolmannella suoralla, ovat yhtä suuret.
+}
+
+Lauseesta saadaan siis, että mikäli suorat ovat yhdensuuntaiset, niitä leikkaavasta suorasta syntyvät samankohtaiset kulmat ovat yhtäsuuret. Lausetta voi käyttää myös kääntäen tarkistamaan, ovatko suorat yhdensuuntaiset vertaamalla samankohtaisia kulmia.

@@ -1,0 +1,76 @@
+\section{Sinilause}
+
+\begin{luoKuva}{sinilause}
+A = geom.piste(0, 0, piirra = False)
+B = geom.piste(5, 2, piirra = False)
+C = geom.piste(2, 4, piirra = False)
+geom.jana(A, B, "$c$", kohta = 0.35)
+geom.jana(B, C, "$a$")
+geom.jana(C, A, "$b$")
+geom.kulma(B, A, C, r"$\alpha$")
+geom.kulma(C, B, A, r"$\beta$")
+geom.kulma(A, C, B, r"$\gamma$")
+
+w = geom.ymparipiirrettyYmpyra(A, B, C)
+O = geom.ympyranKeskipiste(w)
+R = geom.ympyranKehapiste(w, -20, piirra = False)
+geom.jana(O, R, "$R$", kohta = 0.6)
+\end{luoKuva}
+
+\laatikko{
+Kolmion sivut ovat $a$, $b$ ja $c$, ja niitä vastaavat kulmat ovat $\alpha$, $\beta$ ja $\gamma$. \termi{sinilause}{Sinilauseen} mukaan
+$$\frac{a}{\sin \alpha} = \frac{b}{\sin \beta} = \frac{c}{\sin \gamma} = 2R,$$
+missä $R$ on kolmion ympäri piirretyn ympyrän säde.
+
+\begin{center}
+\naytaKuva{sinilause}
+\end{center}
+}
+
+\begin{center}
+ \begin{kuva}
+	rajaa(minX = -1, maxX = 6)
+	A = (0, 0)
+	B = (5, 0)
+	C = (4, 3)
+	P = (4, 0)
+	geom.jana(A, B, "$c$")
+	geom.jana(B, C, "$a$")
+	geom.jana(C, A, "$b$")
+	geom.jana(P, C, "$h$")
+	geom.kulma(B,A,C,r"$\alpha$")
+	geom.kulma(C,B,A,r"$\beta$")
+	vari("black!10!white")
+	geom.jana(P, C)
+	geom.suorakulma(C, P, A)
+	geom.jana(B, P)
+\end{kuva}
+\end{center}
+
+
+\textbf{Sinilauseen todistus.} Tarkastellaan pisimmälle sivulle $c$ piirrettyä korkeusjanaa.
+Sen pituus $h$ on suorakulmaisen kolmion kateettina, joten sen voi ilmoittaa muodossa
+\[
+h = a \sin \beta
+\]
+tai käyttämällä toista suorakulmaista kolmiota, muodossa
+\[
+h = b \sin \alpha .
+\]
+
+Tällöin on voimassa
+\[
+a \sin \beta = b \sin \alpha
+\]
+eli
+\[
+\frac{a}{\sin \alpha} = \frac{b}{\sin \beta}.
+\]
+
+Vastaavalla tavalla piirtämällä sivulle $a$ korkeusjanan saisi pääteltyä, että
+\[
+\frac{b}{\sin \beta} = \frac{c}{\sin \gamma}.
+\]
+
+Viimeisen yhtäsuuruuden voimassaolo perustellaan myös kehäkulmalauseen yhteydessä.
+%onko esitysjärjestys tämä ja perustellaanko tuo siellä?

@@ -1,0 +1,73 @@
+\providecommand{\lukufilter}[2]{#2} % ylikirjoitetaan kaanna_luku.sh -skriptistä.
+\newcommand{\osa}[1]{\chapter{#1}} % osa
+\newcommand{\nosa}[1]{\chapter*{#1} \addcontentsline{toc}{chapter}{#1}} %numeroimaton osa
+\newcommand{\luku}[2]{\section{#2} \lukufilter{#1}{\input{maa3/TEORIA_#1} \input{maa3/TEHT_#1}}} % luku
+\newcommand{\nluku}[2]{\section*{#2} \addcontentsline{toc}{section}{#2} \lukufilter{#1}{\input{maa3/#1}}} % numeroimaton luku
+\newcommand{\vast}{\section*{Vastaukset} \addcontentsline{toc}{section}{Vastaukset} \begin{vastaussivu} \input{vast} \end{vastaussivu}}
+
+\Opensolutionfile{ans}[vast] %kirjoittaa vastaukset tiedostoon vast.tex
+
+\newpage
+
+\section*{MAA3 Geometria}
+\addcontentsline{toc}{chapter}{MAA3 Geometria}
+\lukufilter{#1}{\input{maa3/LIITE_filosofia} % mitä on geometria?
+    \newpage \input{maa3/LIITE_kasitteet}} % suorat, pisteet, kulmat, pituudet, pinta-alat
+
+\osa{Kolmiot ja monikulmiot} % suunnikkaat jonnekin
+    \luku{kolmioiden-luokittelu}{Kolmioiden luokittelu}
+    \luku{kolmioiden-tyypit}{Kolmioiden tyypit}
+    \luku{kulmien-summa}{Kulmien summa}
+    \luku{pythagoras}{Pythagoraan lause}
+    \luku{yhdenmuotoisuus}{Yhdenmuotoisuus}
+    \luku{trigonometria}{Trigonometria}
+    \luku{kolmion-pinta-ala}{Kolmion pinta-ala}
+    \luku{sinilause}{Sinilause}
+    \luku{kosinilause}{Kosinilause}
+
+\osa{Ympyrät}
+    \luku{ympyra}{Ympyrä} % pii + mitä
+    \luku{kaaret-sektorit}{Kaaret ja sektorit}
+    \luku{ympyran-tangentti}{Ympyrän tangentti}
+    \luku{kehakulmalause}{Kehäkulmalause}
+
+\osa{Avaruusgeometria}
+    \luku{avaruuskappaleet}{Avaruuskappaleet} % särmiöt, pallot, lieriöt, kartiot
+    \luku{avaruuskulmat}{Avaruuskulmat}
+    
+\osa{Kertausosio}
+    \nluku{LIITE_ylioppilaskokeet}{Ylioppilaskoetehtäviä}
+
+\renewcommand{\luku}[2]{\section{#2} \lukufilter{#1}{\input{maa4/TEORIA_#1} \input{maa4/TEHT_#1}}} % luku
+\renewcommand{\nluku}[2]{\section*{#2} \addcontentsline{toc}{section}{#2} \lukufilter{#1}{\input{maa4/#1}}} % numeroimaton luku
+
+\section*{MAA4 Vektorit}
+\addcontentsline{toc}{chapter}{MAA4 Vektorit}
+\lukufilter{#1}{\input{maa4/LIITE_esipuhe}}
+
+\osa{Vektorit tasossa}
+    \luku{vektorit}{Johdatus vektoreihin}
+     \luku{vektoriesitys}{Vektorien esitystavat}
+%    \luku{vektorisumma}{Vektorien summa ja erotus}
+%    \luku{vektorien kertominen luvulla}{Vektorien kertominen luvulla}
+%    \luku{vektorien kertominen luvulla}{Vektorien kertominen luvulla}
+%    \luku{kanta}{Kantavektorit}
+%       
+%\osa{Vektorien koordinaattiesitys}
+%    \luku{}{}    
+%    \luku{pistetulo}{Pistetulo}
+%
+%\osa{Vektorit avaruudessa}
+%    \luku{}{}
+%    
+%\osa{Suora ja taso avaruudessa}
+%    \luku{}{}    
+%    
+%\osa{Ylikurssiasia}
+%    \luku{}{}   
+
+\Closesolutionfile{ans}
+
+\osa{Vastaukset ja hakemisto}
+\vast
+% hakemisto tulee yleisestä rakenteesta

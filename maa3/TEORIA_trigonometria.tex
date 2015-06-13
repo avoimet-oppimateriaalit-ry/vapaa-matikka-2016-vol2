@@ -1,0 +1,115 @@
+
+\section*{Trigonometria}
+
+Tarkastellaan kahta suorakulmaista kolmiota, joilla on yhtä suuri terävä kulma $\alpha$.
+Silloin kolmiot ovat keskenään yhdenmuotoisia, sillä niillä on kaksi yhtä suurta vastinkulmaa.
+Yhdenmuotoisuuden nojalla sivujen keskinäiset suhteet ovat siis täsmälleen samoja kaikilla
+suorakulmaisilla kolmioilla, joilla on samansuuruinen terävä kulma. Näille suhteet on
+nimetty seuraavasti.
+
+\laatikko{
+\termi{sini}{Sini}: $\sin \alpha = \frac{\textrm{kulman $\alpha$ vastaisen kateetin pituus}}
+{\textrm{hypotenuusan pituus}}$ \\
+\termi{kosini}{Kosini}: $\cos \alpha = \frac{\textrm{kulman $\alpha$ viereisen kateetin pituus}}
+{\textrm{hypotenuusan pituus}}$ \\
+\termi{tangentti}{Tangentti}: $\tan \alpha = \frac{\textrm{kulman $\alpha$ vastaisen kateetin pituus}}
+{\textrm{kulman $\alpha$ viereisen kateetin pituus}}$
+}
+
+\begin{esimerkki}
+\begin{center}
+\begin{kuva}
+	A = (4, 3)
+	B = (0, 0)
+	C = (4, 0)
+	geom.jana(A, B, "$c$")
+	geom.jana(B, C, "$a$")
+	geom.jana(C, A, "$b$")
+	geom.suorakulma(A, C, B)
+	geom.kulma(C, B, A, r"$\alpha$")
+\end{kuva}
+\end{center}
+Kuvan kolmiossa pätee
+\[
+\begin{array}{ccc}
+\displaystyle\sin \alpha = \frac{b}{c}, &
+\displaystyle\cos \alpha = \frac{a}{c}, &
+\displaystyle\tan \alpha = \frac{b}{a}.
+\end{array}
+\]
+\end{esimerkki}
+
+...yksikköympyrä, tylpän kulman siniä ja kosinia tarvitaan...
+
+
+%mihin kohtaan sijoitetaan?
+Koordinaattiakselit jakavat koordinaatiston neljään osaan. Näitä osia kutusutaan neljänneksiksi ja niitä merkitään roomalaisin numeroin (I, II, III ja IV) alkaen positiivisesta $x$-akselista positiiviseen kiertosuuntaan (vastapäivään).
+
+\subsection{Yksikköympyrä}
+
+%vain tapauksissa 0-180 astetta, loput kulmat kurssilla 9
+
+Yksikköympyräksi kutsutaan koordinaatistoon pirrettyä ympyrää, jonka keskipiste on origossa ja säde yksi.
+
+%\FIXME yksikköympyrässä käytetään termiä kehäpiste. Termi esitellään vasta myöhemmin. Mikä on esitysjärjestys?
+Kulman kärki sijoitetaan origoon ja oikea kylki positiiviselle $x$-akselille.
+
+%pitääkö mainita?
+Kulman suuruutta mitataan positiiviseen kiertosuuntaan.
+
+% 
+% O=geom.piste(0,0)
+%         A=geom.piste(0.5, 0.866)
+%         B=geom.piste(0, 0.866)
+%         C=geom.piste(-0.5, 0.866)
+%         D=geom.piste(1,0)
+
+\begin{center}
+\begin{kuva}
+        kuvaaja.pohja(-1.5, 1.5, -1.5, 1.5)
+        O=(0,0)
+        A=geom.piste(0.5, 0.866, r"keh\"apiste")
+        B=(0, 0.866)
+        C=(-0.5, 0.866)
+        D=(1,0)
+        geom.jana(O, A)
+        geom.kulma(D, O, A, r"$\alpha$")
+        geom.ympyra(O,1)
+\end{kuva}
+\end{center}
+
+
+%sini
+\begin{center}
+\begin{kuva}
+        kuvaaja.pohja(-1.5, 1.5, -1.5, 1.5)
+        O=(0,0)
+        A=geom.piste(0.5, 0.866)
+        B=(0, 0.866)
+        C=(-0.5, 0.866)
+        D=(1,0)
+        geom.jana(O, A)
+        geom.kulma(D, O, A, r"$\alpha$")
+        geom.ympyra(O,1)
+        geom.jana(A,B)
+\end{kuva}
+\end{center}
+
+%kosini
+\begin{center}
+\begin{kuva}
+        kuvaaja.pohja(-1.5, 1.5, -1.5, 1.5)
+        O=(0,0)
+        A=geom.piste(0.5, 0.866)
+        B=(0, 0.866)
+        C=(-0.5, 0.866)
+        D=(1,0)
+        E=(0.5,0)
+        geom.jana(O, A)
+        geom.kulma(D, O, A, r"$\alpha$")
+        geom.ympyra(O,1)
+        geom.jana(A,E)
+\end{kuva}
+\end{center}
+
+%FIXME \todo{olisi kiva, jos kuvaajapohjasta olisi ''millimetripaperiversio''}

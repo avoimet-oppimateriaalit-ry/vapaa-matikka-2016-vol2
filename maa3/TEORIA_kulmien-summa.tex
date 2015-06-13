@@ -1,0 +1,44 @@
+\section*{Kolmion kulmien summa}
+
+Minkä tahansa kolmion kulmien summa on $ 180^{\circ}$ eli yhtä suuri kuin oikokulma.
+
+Tämän usein käytetyn ominaisuuden todistaminen on kohtuullisen yksinkertaista aiemmin esitettyjen tulosten perusteella.
+
+Kun kuvan mukaisen kolmion kärjen $C$ kautta asetetaan kulkemaan sivun $AB$ kanssa yhden suuntainen suora $l$.
+
+
+
+%	geom.suora(A, B)
+%	geom.suora(C, B)
+%	geom.suora(C, A)
+%pitäisikö olla suora, kun samankohtaiset kulmat on määritelty suorille?
+
+\begin{kuva}{kolmionkulmiensumma}
+	rajaa(minX = -1, maxX = 6)
+	A = geom.piste(3, 4,"$A$", suunta = 315)
+	B = geom.piste(-1, 4, "$B$", suunta = 225)
+	C = geom.piste(0, 0, "$C$", suunta = 270)
+	D = (-2, 0)
+	E = (6, 0)
+	geom.suora(E, D, "$l$")
+	geom.jana(B, C)
+	geom.jana(B, A)
+	geom.jana(A, C)
+	geom.kulma(C, B, A, r"$\beta$")
+	geom.kulma(B, A, C, r"$\alpha$")
+	geom.kulma(A, C, B, r"$\gamma$")
+	geom.kulma(B, C, D, r"$\beta'$")
+	geom.kulma(E, C, A, r"$\alpha'$")
+\end{kuva}
+
+Suorat $l$ ja $AB$ ovat keskenään yhdensuuntaiset. Tällöin kulmat $\alpha$ ja $\alpha'$ ovat samankohtaisina kulmina yhtä suuret. Sama pätee myös kulmille $\beta$ ja $\beta'$.
+
+Kuvan alaosan oikokulma voidaan lausua
+\[\beta' + \gamma + \alpha'=\alpha' + \beta' + \gamma=\alpha+ \beta + \gamma=180^\circ\]
+
+eli on todistettu, että kolmion kulmien summa on $180^\circ$.
+\qed 
+
+
+
+ 

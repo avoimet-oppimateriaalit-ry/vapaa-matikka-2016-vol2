@@ -1,0 +1,66 @@
+\section*{Ympyrä}
+
+\begin{luoKuva}{ympyraosat}
+	skaalaa(2)
+	keskipiste = geom.piste(0, 0, "keskipiste")
+	ympyra = geom.ympyra(keskipiste, 1, r"ympyr\"{a}", 30)
+	kehapiste = geom.leikkauspiste(
+		ympyra, geom.suoraSuuntaan(keskipiste, -1, 2, piirra = False), piirra = False
+	)
+	geom.jana(kehapiste, keskipiste, r"s\"{a}de")
+\end{luoKuva}
+\laatikko{
+\termi{ympyrä}{Ympyrä} on sellaisten pisteiden joukko, jotka ovat kiinteällä etäisyydellä tietystä pisteestä. Tätä joukkoa kutsutaan myös \termi{piiri}{piiriksi} tai \termi{kehä}{kehäksi}, mainittua kiinteää etäisyyttä kutsutaan ympyrän \termi{säde}{säteeksi} ja kyseistä pistettä ympyrän \termi{keskipiste}{keskipisteeksi}.
+}
+\begin{center}
+\naytaKuva{ympyraosat}
+\end{center}
+
+\begin{esimerkki} %FIXME Mikä tämän esimerkin idea on? Voisi varmaankin jättää pois.
+Kuu kiertää Maata likimäärin ympyränmuotoisella radalla, jonka keskipiste on Maa ja säde on Kuun ja Maan välinen etäisyys.
+\end{esimerkki}
+
+(KUVA TÄHÄN)
+
+\begin{luoKuva}{ympyrajanne}
+	skaalaa(2)
+	O = geom.piste(0, 0)
+	w = geom.ympyra(O, 1)
+	s = geom.suoraSuuntaan(O, 1, 0, piirra = False)
+	l = geom.suoraSuuntaan((0.2, 0.6), 1, -0.2, piirra = False)
+	A = geom.leikkauspiste(w, s, valinta = False, piirra = False)
+	B = geom.leikkauspiste(w, s, valinta = True, piirra = False)
+	C = geom.leikkauspiste(w, l, valinta = False, piirra = False)
+	D = geom.leikkauspiste(w, l, valinta = True, piirra = False)
+	geom.jana(A, B, "halkaisija")
+	geom.jana(C, D, r"j\"{a}nne")
+\end{luoKuva}
+\laatikko{
+Ympyrän \termi{jänne}{jänne} on jana kahden ympyrän kehäpisteen välillä. Mikäli jänne kulkee ympyrän keskipisteen kautta, se on ympyrän \termi{halkaisija}{halkaisija}. Halkaisijan pituus on kaksi kertaa ympyrän säde.
+}
+%toinen tapa määritellä olisi sekantin avulla
+
+
+\begin{center}
+\naytaKuva{ympyrajanne}
+\end{center}
+
+Ympyrät ovat keskenään yhdenmuotoisia, joten ympyrän sädettä kasvattaessa ympyrän halkaisija kasvaa samassa suhteessa. Ympyrän kehän pituuden suhde ympyrän säteeseen on siis vakio. Tätä vakiota kutsutaan piiksi ja sitä merkitään kirjaimella $\pi$, ja sen arvo on likimain $3,14$. Piin määritelmän nojalla saadaan luonnollisesti kaava ympyrän kehän pituudelle:
+
+% FIXME: onko $\pi$ rationaaliluku, piin määritelmä erikseen ja alla olevaan laatikkoon vain p=2\pi r
+
+\laatikko{
+Jos ympyrän halkaisija on $d$, sen kehän pituus $p$ saadaan kaavasta
+\[p = \pi d.\]
+Siis jos ympyrän säde on $r$, myös
+\[p = 2 \pi r.\]
+}
+
+% FIXME tämä turhaa?
+%Tasokuvioita kasvattaessa niiden pinta-alat kasvavat kertoimen toisessa potenssissa, joten myös ympyrän pinta-alan ja säteen neliön suhde pysyvät vakiona. %Käy ilmi että tämäkin suhde on $\pi$.
+
+\laatikko{
+% FIXME: ympyrän pinta-ala = 0, kiekon pinta-ala?
+Jos ympyrän säde on $r$, sen pinta-ala $A$ saadaan kaavasta
+\[A = \pi r^2.\]
+}

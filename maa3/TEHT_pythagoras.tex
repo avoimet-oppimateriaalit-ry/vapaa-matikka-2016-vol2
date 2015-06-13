@@ -1,0 +1,88 @@
+\begin{tehtavasivu}
+
+\paragraph*{Opi perusteet}
+
+\paragraph*{Hallitse kokonaisuus}
+
+	\begin{tehtava}
+Äiti avasi kukkaronsa nyörejä ja ostaa paukautti suuren taulutelevision, jonka mitat ovat $300$\,cm \times $210$\,cm. Mahtuuko televisio edes sisään ulko-ovesta, jonka mitat on $200$\,cm \times $80$\,cm?
+	\begin{vastaus}
+	 Kyllä mahtuu. (Oven lävistäjä on suurempi kuin telkkarin korkeus.)
+	\end{vastaus}
+	\end{tehtava}
+	
+	\begin{tehtava}
+Suorakulmion muotoisen vanerilevyn mitat ovat $230\,\text{cm}\times 250\,\text{cm}$. Mahtuuko se sisään oviaukosta, joka on $90$\,cm leveä ja $205$\,cm korkea?
+        \begin{vastaus}
+        Ei mahdu. Suurin mahdollinen levy, joka mahtuu ovesta sisään on Pythagoraan lauseen perusteella leveydeltään $\sqrt{90^2+205^2}\approx 224$\,cm.
+        \end{vastaus}
+\end{tehtava}
+
+\begin{tehtava}
+$\star$ Ajatellaan suorakulmaista hiekkakenttää, jonka pinta-ala on $1$ aari ($100\,\mathrm{m}^2$). Lyhyemmän ja pidemmän sivujen pituuksien suhde on $4:3$. Laske Pythagoraan lauseen avulla matka hiekkakentän kulmasta kauimmaisena olevaan kulmaan.
+\begin{vastaus}
+$\frac{4}{3}x^2=100$, joten $x = \sqrt{\frac{300}{4}}$. 
+Hypotenuusa: $\sqrt{x^2 + (\frac{4}{3}x)^2}=\sqrt{\frac{300}{4}+\frac{16}{9}\cdot \frac{300}{4}}
+=\frac{5}{3}\sqrt{\frac{300}{4}}\approx 14,4$.
+\end{vastaus}
+\end{tehtava}
+
+\begin{tehtava}
+Todista Pythagoraan lauseen käänteislause: Jos kolmion sivujen pituuksille $a,b$ ja $c$ pätee
+\[
+a^2+b^2 = c^2,
+\]
+niin kolmio on suorakulmainen.
+
+\begin{vastaus}
+Vinkki: Tutki suorakulmaista kolmiota, jonka kateettien pituudet ovat $a$ ja $b$ ja hyödynnä yhtenevyyttä.
+\end{vastaus}
+\end{tehtava}
+
+\begin{tehtava}
+Kolmion ala voidaan esittää myös suoraan kolmion sivujen pituuksien funktiona. Kolmion $ABC$ sivua $BC$ vastaavan korkeusjanan $AD$ pituus voidaan määrittää käyttämällä Pythagoraan lausetta kolmioihin $ABD$ ja $ACD$.
+\alakohdat{
+§ Lausu sivun $BC$ pituus sivujen $AC$ ja $AB$ ja korkeusjanan $AD$ pituuksien avulla.
+§ Ratkaise korkeusjanan pituuden neliö neliöimällä yhtälö ja sieventämällä kahdesti.
+§ Nyt voit muodostaa polynomilausekkeen kolmion pinta-alan neliölle.
+§ Merkitse vielä $BC = a$, $AC = b$, $AB = c$, sekä $p = \frac{a+b+c}{2}$ ja todista kuuluisa Heronin kaava kolmion pinta-alalle
+\[
+A_{ABC} = \sqrt{p(p-a)(p-b)(p-c)}
+\]
+}
+
+\begin{vastaus}
+\alakohdat{
+$BC = \pm\sqrt{AC^2-AD^2}\pm\sqrt{AB^2-AD^2}$. $\pm$-merkit valitaan riippuen kolmion tyypistä.
+$AD^2 = \frac{4AC^2AB^2-(BC^2-AC^2-AB^2)^2}{BC^2}$
+$A_{ABC}^2 = \frac{4AC^2AB^2-(BC^2-AC^2-AB^2)^2}{16}$
+Vinkki: Käytä toistuvasti identiteettiä $x^2-y^2 = (x+y)(x-y)$ tai kerro raa'asti auki.
+}
+\end{vastaus}
+\end{tehtava}
+
+\paragraph*{Sekalaisia tehtäviä}
+
+\begin{tehtava}
+	Ratkaise puuttuvat sivut
+	\alakohdat{
+		§ Kateetit ovat $3$ ja $4$
+		§ Kateetit ovat $1$ ja $2$
+		§ Toinen kateetti, kun hypotenuusa on $\sqrt{2}$ ja toinen kateetti on $1$
+		§ Hypotenuusa on $8$, kun molemmat kateetit ovat yhtä pitkiä
+	}
+	\begin{vastaus}
+		\alakohdat{
+			$5$
+			$\sqrt{5}$
+			$1$
+			$2\sqrt{2}$
+		}
+	\end{vastaus}
+\end{tehtava}
+
+\begin{tehtava}
+Todista, että jos kolmion sivujen pituudet ovat $2ab$, $a^2-b^2$ ja $a^2+b^2$ ($a>b$), niin kolmio on suorakulmainen.
+\end{tehtava}
+
+\end{tehtavasivu}

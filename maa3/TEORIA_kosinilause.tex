@@ -1,0 +1,103 @@
+\section{Kosinilause}
+
+\begin{esimerkki}
+Kolmion kahden sivun pituudet ovat 5,0~cm ja 7,0~cm, ja näistä pitempää sivua vastaava kulma on $60^\circ$. Laske kolmion kolmannen sivun pituus, loppujen kulmien suuruus sekä kolmion ala.
+
+
+%FIXME Tässä ''tiedetään ennalta'' seuraava: 7 cm ei ole pisin sivu -> beta on terävä kulma. Vaihdetaanko tehtävänantoa vai perustellaanko tuo?
+
+\textbf{Ratkaisu.}
+
+Lasketaan ensin 5~cm sivua vastaavan kulman suuruus. Tehdään verrantoyhtälö:
+
+\begin{align*}
+\frac{7}{\sin 60^\circ}  &= \frac{5}{\sin \beta} & & | \, \cdot \sin 60^\circ \cdot \sin \beta\\
+7 \cdot \sin \beta &= 5 \cdot \sin 60^\circ  & & | \,  :7\\
+\sin \beta         &= \frac{5 \cdot \sin 60^\circ}{7}\\
+\beta              &\approx 38,2^\circ & & | \, \text{kulma on terävä}
+\end{align*}
+
+Siis 5~cm mittaista sivua vastaava kulma on noin $38,2^\circ$. Kolmannen kulman suuruus on siis $180^\circ - 60^\circ -38,2^\circ = 81,8^\circ4$.
+Lasketaan seuraavaksi kolmannen sivun pituus. Tehdään verrantoyhtälö:
+
+\begin{align*}
+\frac{7}{\sin 60}                 &= \frac{c}{\sin 81,8} & & | \,  \cdot \sin 60^\circ, \cdot \sin 81,8^\circ \\
+7 \cdot \sin 81,8                 &= c \cdot \sin 60     & & | \,  : \sin 60^\circ \\
+\frac{7 \cdot \sin 81,8^\circ}{\sin 60^\circ} &= c \\
+c                                 &\approx 8,00
+\end{align*}
+Siis kolmannen sivun pituus on noin 8,0~cm.
+
+
+Lasketaan lopuksi kolmion pinta-ala:
+$$A = \frac{1}{2} \cdot 5 \cdot 7 \cdot \sin 81,8 \approx 17.$$
+Siis kolmion pinta-ala on noin $17~\textnormal{cm}^2$.
+\end{esimerkki}
+
+\laatikko{
+Olkoot kolmion sivut $a$, $b$ ja $c$, ja niitä vastaavat kulmat $\alpha$, $\beta$ ja
+$\gamma$. Tällöin pätee seuraava \termi{kosinilause}{kosinilauseena} tunnettu kaava.
+\[
+c^2 = a^2 + b^2 - 2 a b \cos \gamma
+\]
+}
+
+\textbf{Kosinilauseen todistus}. Olkoon sivulle $a$ piirretty korkeusjana $h$, ja tämän
+korkeusjanan kantapisteen etäisyys kulman $\gamma$ kärjestä $d$ ja kulman $\beta$ kärjestä $e$.
+
+
+%FIXME kuva vaan kopioitu, ei muutettu oikeaksi
+% \begin{center}
+%  \begin{kuva}
+% 	rajaa(minX = -1, maxX = 6)
+% 	A = (0, 0)
+% 	B = (5, 0)
+% 	C = (4, 3)
+% 	P = (4, 0)
+% 	geom.jana(A, B, "$c$")
+% 	geom.jana(B, C, "$a$")
+% 	geom.jana(C, A, "$b$")
+% 	geom.jana(P, C, "$h$")
+% 	geom.kulma(B,A,C,r"$\alpha$")
+% 	geom.kulma(C,B,A,r"$\beta$")
+% 	vari("black!10!white")
+% 	geom.jana(P, C)
+% 	geom.suorakulma(C, P, A)
+% 	geom.jana(B, P)
+% \end{kuva}
+% \end{center}
+
+Pythagoraan lauseen nojalla seuraavat yhtälöt ovat voimassa.
+
+\[
+h^2 + d^2 = b^2
+\]
+\[
+h^2 + e^2 = c^2
+\]
+
+Oletetaan ensin, että kulma $\gamma$ ei ole tylppä. Tällöin $d = b \cos \gamma$.
+Lisäksi joko $e = a - d$ tai $e = d - a$ riippuen siitä, onko kulma $\beta$ terävä vai
+tylppä. Joka tapauksessa $e^2 = a^2 - 2ad + d^2$, ja siksi
+
+\begin{align*}
+c^2 &= h^2 + e^2 \\
+&= b^2 - d^2 + e^2 \\
+&= b^2 - d^2 + a^2 - 2 a d + d^2 \\
+&= a^2 + b^2 - 2 a b \cos \gamma .
+\end{align*}
+
+Oletetaan sitten, että kulma $\gamma$ on tylppä. Koska $\cos (180^{\circ} - \gamma )
+= - \cos \gamma$, niin $d = -b \cos \gamma$. Lisäksi $e = a + d$. Näin saadaan
+
+\begin{align*}
+c^2 &= h^2 + e^2 \\
+&= b^2 - d^2 + e^2 \\
+&= b^2 - d^2 + a^2 + 2 a d + d^2 \\
+&= a^2 + b^2 + 2 a(- b \cos \gamma ) \\
+&= a^2 + b^2 - 2 a b \cos \gamma .
+\end{align*}
+
+Kaava on siis voimassa. $\square$
+
+Jos kulma $\gamma$ on $90^\circ$, niin $\cos 90^\circ=0$ ja kosinilauseesta tulee Pythagoraan lause. Kosinilausetta voidaan siis pitää laajennettuna Pythagoraan lauseena, jota voidaan soveltaa myös muihin kuin suorakulmaisiin kolmioihin.

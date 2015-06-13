@@ -1,0 +1,57 @@
+\section*{Kehäkulmalause}
+
+Ympyrän \termi{kehäkulma}{kehäkulmalla} tarkoitetaan kulmaa, jonka kärki on ympyrän kehällä ja kyljet ympyrän jänteitä. Kehäkulma erottaa ympyrän kehältä kaaren.
+\begin{center}
+\begin{kuva}
+	skaalaa(2)
+	O = geom.piste(0, 0, piirra = False)
+	w = geom.ympyra(O, 1)
+	f = lambda x: (cos(pi * x / 180), sin(pi * x / 180))
+	a = -60
+	c = 30
+	A = f(a)
+	B = f(135)
+	C = f(c)
+	geom.jana(A, B)
+	geom.jana(B, C)
+	geom.kulma(A, B, C)
+	with paksuus(3):
+		geom.kaari(O, 1, a, c)
+\end{kuva}
+\end{center}
+
+\begin{luoKuva}{kehakulmalause}
+	skaalaa(2)
+	O = geom.piste(0, 0)
+	w = geom.ympyra(O, 1)
+	f = lambda x: (cos(pi * x / 180), sin(pi * x / 180))
+	a = -70
+	b = 20
+	A = f(a)
+	B = f(b)
+	X = f(140)
+	
+	geom.jana(X, A)
+	geom.jana(X, B)
+	geom.jana(O, A)
+	geom.jana(O, B)
+	
+	geom.kulma(A, X, B, r"$\alpha$")
+	geom.kulma(A, O, B, r"$2\alpha$")
+\end{luoKuva}
+
+\laatikko{
+\termi{kehäkulmalause}{Kehäkulmalause}
+
+Kaarta vastaava kehäkulman suuruus on puolet samaa kaarta vastaavan keskuskulman suuruudesta. Erityisesti kaikki samaa kaarta vastaavat kehäkulmat ovat yhtä suuria.
+
+\begin{center}
+\naytaKuva{kehakulmalause}
+\end{center}
+}
+
+Myös käänteinen väite pätee: jos kaksi pistettä samalla puolella janaa näkevät janan samassa kulmassa, ne ja janan päätepisteet ovat samalla ympyrällä.
+
+Kehäkulmalauseen erikoistapauksena saadaan Thaleen lause: puoliympyrän sisältämä kehäkulma on suora. Kerrotaan, että Thales Miletoslainen uhrasi härän keksittyään lauseelle todistuksen.
+
+Yhtäkään härkää ei uhrattu tätä kirjaa tehdessä.

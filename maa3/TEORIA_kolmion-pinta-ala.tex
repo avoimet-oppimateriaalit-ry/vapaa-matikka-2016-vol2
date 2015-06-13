@@ -1,0 +1,151 @@
+\section{Pinta-alan}
+
+Pinta-ala on yksi tärkeimmistä geometrian käsitteistä ja se on yksi tapa vastata kysymykseen: kuinka suuri tasokuvion rajaama alue on? Pinta-ala on siis tasokuvioon liitettävä luku.
+
+Pinta-ala voidaan määritellä niin, että suorakulmion pinta-ala on sen kannan ja korkeuden tulo
+
+KUVA
+
+Lisäksi halutaan, että jos kuvio jaetaan kahteen osaan, osien pinta-alojen summa on sama kuin koko kuvion pinta-ala.
+
+Näistä ehdoista seuraa, että myös suunnikkaan pinta-ala voidaan laskea samalla lausekkeella
+
+KUVA
+
+ja kolmion pinta-alalle saadaan kaava ''kanta kertaa korkeus jaettuna kahdella.''
+
+Kolmion pinta-alan laskemiseen on käytännössä olemassa myös muita tapoja. Usein tulee vastaan tilanteita, joissa kolmion korkeutta ei tiedetä, mutta tiedetään esimerkiksi sivujen pituuksia ja ehkä lisäksi myös kulmien suuruuksia. Tällaisista tapauksista voi selvitä helpommalla, jos tuntee muitakin tapoja pinta-alan määrittämiseksi.
+
+% FIXME: perustelu suunnikkail?
+\begin{luoKuva}{kolmiopintaala}
+	rajaa(minX = -1, maxX = 6)
+	A = (0, 0)
+	B = (5, 0)
+	C = (3, 3)
+	P = (3, 0)
+	geom.jana(A, B, "$s$")
+	geom.jana(B, C)
+	geom.jana(C, A)
+	#geom.jana(P, C, "$h$") # testi
+	vari("black!10!white")
+	geom.jana(P, C) 
+	geom.suorakulma(C, P, A)
+\end{luoKuva}
+%#h jää näkyviin
+% # laitetaan suora harmaalla päälle
+%	vari("black!10!white")
+
+\laatikko{
+Kolmion pinta-ala on puolet kolmion sivun pituuden ja saman sivun määräämälle suoralle piirretyn korkeusjanan pituuden tulosta.
+\[A = \frac12sh\]
+\begin{center}
+\naytaKuva{kolmiopintaala}
+\end{center}
+}
+
+\begin{center}
+\begin{kuva}
+	rajaa(minX = -1, maxX = 6)
+	A = (0, 0)
+	B = (5, 0)
+	C = (6, 3)
+	P = (6, 0)
+	geom.jana(A, B, "$s$")
+	geom.jana(B, C)
+	geom.jana(C, A)
+	geom.jana(P, C, "$h$")
+	vari("black!10!white")
+	geom.jana(P, C)
+	geom.suorakulma(C, P, A)
+	geom.jana(B, P)
+\end{kuva}
+\end{center}
+%FIXME kuvaan korkeusjana harmaalla/katkoviivalla, jotta kolmio erottuu paremmin
+
+
+%FIXME \todo{Olisiko parempi esitellä trigonometrinen kaava vasta trigonometrian jälkeen, niin voisi perustella.}
+
+Kolmion pinta-alan trigonometrinen kaava:
+
+\laatikko{
+Kolmion sivut ovat a, b ja c ja niitä vastaavat kulmat ovat $\alpha$, $\beta$ ja $\gamma$. Kolmion pinta-ala on
+$$A= \frac{1}{2} a b \sin \gamma = \frac{1}{2} b c \sin \alpha = \frac{1}{2} c a \sin \beta.$$
+}
+
+Tosielämässä on usein helpompaa mitata kolmioiden sivujen pituudet kuin kulmien suuruudet. Tällöin pinta-alan määrittämiseen voi käyttää \termi{Heronin kaavaa}{Heronin kaava}.
+
+\laatikko{
+Kolmion sivut ovat $a$, $b$ ja $c$. $p$ on puolet kolmion piiristä (ns. \termi{puolipiiri}{puolipiiri}) eli 
+\[p = \frac{a+b+c}{2}. \]
+Kolmion pinta-ala on 
+$$A = \sqrt{p(p-a)(p-b)(p-c)}.$$
+}
+
+Pythagoraan lauseen voi todistaa myös laskemalla pinta-aloja.
+
+\textbf{Pythagoraan lauseen todistus 2}. Olkoot $a$, $b$ ja $c$ suorakulmaisen kolmion
+sivujen pituudet, joista $c$ on hypotenuusan pituus. Tarkastellaan neliötä, jonka sivun
+pituus on $a+b$, ja jaetaan se osiin kahdella eri tavalla alla olevien kuvien mukaisesti.
+
+\begin{kuva}
+a = 3
+b = 1.5
+c = sqrt(a**2 + b**2)
+
+A = geom.piste(0, 0, piirra = False)
+B = geom.piste(a, 0, piirra = False)
+C = geom.piste(a + b, 0, piirra = False)
+D = geom.piste(a + b, a, piirra = False)
+E = geom.piste(a + b, a + b, piirra = False)
+F = geom.piste(b, a + b, piirra = False)
+G = geom.piste(0, a + b, piirra = False)
+H = geom.piste(0, b, piirra = False)
+
+geom.jana(A, B, "$a$")
+geom.jana(B, C, "$b$")
+geom.jana(C, D, "$a$")
+geom.jana(D, E, "$b$")
+geom.jana(E, F, "$a$")
+geom.jana(F, G, "$b$")
+geom.jana(G, H, "$a$")
+geom.jana(H, A, "$b$")
+
+geom.jana(B, H, "$c$")
+geom.jana(H, F, "$c$")
+geom.jana(F, D, "$c$")
+geom.jana(D, B, "$c$")
+
+siirraX(a + b + 2)
+
+A = geom.piste(0, 0, piirra = False)
+B = geom.piste(a, 0, piirra = False)
+C = geom.piste(a + b, 0, piirra = False)
+D = geom.piste(a + b, a, piirra = False)
+E = geom.piste(a + b, a + b, piirra = False)
+F = geom.piste(a, a + b, piirra = False)
+G = geom.piste(0, a + b, piirra = False)
+H = geom.piste(0, a, piirra = False)
+X = geom.piste(a, a, piirra = False)
+
+geom.jana(A, B, "$a$")
+geom.jana(B, C, "$b$")
+geom.jana(C, D, "$a$")
+geom.jana(D, E, "$b$")
+geom.jana(E, F, "$b$")
+geom.jana(F, G, "$a$")
+geom.jana(G, H, "$b$")
+geom.jana(H, A, "$a$")
+
+geom.jana(B, X, "$a$")
+geom.jana(D, X, "$b$", puoli = False)
+geom.jana(F, X, "$b$")
+geom.jana(H, X, "$a$", puoli = False)
+\end{kuva}
+
+Ensimmäisessä kuvassa neliön osat ovat neljä yhtenevää suorakulmaista kolmiota, joiden
+sivujen pituudet ovat $a$, $b$ ja $c$, ja neliö, jonka sivun pituus on $c$.
+
+Toisessa kuvassa neliön osat ovat neljä yhtenevää suorakulmaista kolmiota, joiden
+sivujen pituudet ovat $a$, $b$ ja $c$, ja kaksi neliötä, joiden sivujen pituudet ovat $a$ ja $b$.
+Koska yhteenlaskettujen pinta-alojen on oltava samat, on oltava $a^2 + b^2 = c^2$.
+Pythagoraan lause on todistettu. $\square $

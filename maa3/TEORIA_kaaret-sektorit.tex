@@ -1,0 +1,73 @@
+\section*{Kaaret ja sektorit}
+
+\begin{luoKuva}{keskuskulmakaari}
+	skaalaa(2)
+	O = geom.piste(0, 0)
+	w = geom.ympyra(O, 1)
+	f = lambda x: (cos(pi * x / 180), sin(pi * x / 180))
+	a = -45
+	c = 45
+	A = f(a)
+	C = f(c)
+	geom.jana(A, O)
+	geom.jana(O, C)
+	geom.kulma(A, O, C)
+	with paksuus(3):
+		geom.kaari(O, 1, a, c)
+\end{luoKuva}
+\begin{luoKuva}{keskuskulmasektori}
+	skaalaa(2)
+	O = geom.piste(0, 0)
+	w = geom.ympyra(O, 1)
+	f = lambda x: (cos(pi * x / 180), sin(pi * x / 180))
+	a = -45
+	c = 45
+	A = f(a)
+	C = f(c)
+	geom.kulma(A, O, C)
+	with paksuus(3):
+		geom.jana(A, O)
+		geom.jana(O, C)
+		geom.kaari(O, 1, a, c)
+\end{luoKuva}
+\begin{luoKuva}{segmentti}
+	skaalaa(2)
+	O = geom.piste(0, 0)
+	w = geom.ympyra(O, 1)
+	f = lambda x: (cos(pi * x / 180), sin(pi * x / 180))
+	a = -45
+	c = 45
+	A = f(a)
+	C = f(c)
+	with paksuus(3):
+		geom.jana(A, C)
+		geom.kaari(O, 1, a, c)
+\end{luoKuva}
+\laatikko{
+Kulmaa, jonka kärki on ympyrän keskipisteessä ja kyljet kulkevat kaaren päätepisteiden kautta, kutsutaan \termi{keskuskulma}{keskuskulmaksi}. Keskuskulma rajaa ympyrän kehältä \termi{kaari}{kaaren}.
+
+\begin{center}
+\naytaKuva{keskuskulmakaari}
+\end{center}
+
+Keskuskulman kylkien ja keskuskulmaa vastaava kaaren rajaamaa aluetta kutsutaan \termi{sektori}{sektoriksi}. Kaaren ja sen päätepisteiden välisen jänteen rajaamaa aluetta kutsutaan \termi{segmentti}{segmentiksi}.
+
+% FIXME: väritä!
+\begin{center}
+\begin{minipage}{4.5cm}
+\naytaKuva{keskuskulmasektori}
+\end{minipage}
+\begin{minipage}{4.5cm}
+\naytaKuva{segmentti}
+\end{minipage}
+\end{center}
+
+On syytä huomata, että kaksi sädettä rajaa ympyrästä kaksi sektoria.
+
+\textbf{Kaaren pituus:}
+\[ b = \frac{\alpha}{360^\circ}\cdot 2\pi r\]
+	
+\textbf{Sektorin pinta-ala:}
+\[ A_s = \frac{\alpha}{360^\circ}\cdot \pi r^2\]
+}
+
