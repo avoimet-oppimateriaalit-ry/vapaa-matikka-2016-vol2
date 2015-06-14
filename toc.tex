@@ -1,16 +1,8 @@
-\providecommand{\lukufilter}[2]{#2} % ylikirjoitetaan kaanna_luku.sh -skriptistä.
-\newcommand{\osa}[1]{\chapter{#1}} % osa
-\newcommand{\nosa}[1]{\chapter*{#1} \addcontentsline{toc}{chapter}{#1}} %numeroimaton osa
-\newcommand{\luku}[2]{\section{#2} \lukufilter{#1}{\input{maa3/TEORIA_#1} \input{maa3/TEHT_#1}}} % luku
-\newcommand{\nluku}[2]{\section*{#2} \addcontentsline{toc}{section}{#2} \lukufilter{#1}{\input{maa3/#1}}} % numeroimaton luku
-\newcommand{\vast}{\section*{Vastaukset} \addcontentsline{toc}{section}{Vastaukset} \begin{vastaussivu} \input{vast} \end{vastaussivu}}
-
-\Opensolutionfile{ans}[vast] %kirjoittaa vastaukset tiedostoon vast.tex
+\renewcommand{\luku}[2]{\section{#2} \lukufilter{#1}{\input{maa3/TEORIA_#1} \input{maa3/TEHT_#1}}} % luku
+\renewcommand{\nluku}[2]{\section*{#2} \addcontentsline{toc}{section}{#2} \lukufilter{#1}{\input{maa3/#1}}} % numeroimaton luku
 
 \newpage
-
-\section*{MAA3 Geometria}
-\addcontentsline{toc}{chapter}{MAA3 Geometria}
+\nosa{MAA3 -- Geometria}
 \lukufilter{#1}{\input{maa3/LIITE_filosofia} % mitä on geometria?
     \newpage \input{maa3/LIITE_kasitteet}} % suorat, pisteet, kulmat, pituudet, pinta-alat
 
@@ -41,8 +33,7 @@
 \renewcommand{\luku}[2]{\section{#2} \lukufilter{#1}{\input{maa4/TEORIA_#1} \input{maa4/TEHT_#1}}} % luku
 \renewcommand{\nluku}[2]{\section*{#2} \addcontentsline{toc}{section}{#2} \lukufilter{#1}{\input{maa4/#1}}} % numeroimaton luku
 
-\section*{MAA4 Vektorit}
-\addcontentsline{toc}{chapter}{MAA4 Vektorit}
+\nosa{MAA4 -- Vektorit}
 \lukufilter{#1}{\input{maa4/LIITE_esipuhe}}
 
 \osa{Vektorit tasossa}
@@ -65,9 +56,3 @@
 %    
 %\osa{Ylikurssiasia}
 %    \luku{}{}   
-
-\Closesolutionfile{ans}
-
-\osa{Vastaukset ja hakemisto}
-\vast
-% hakemisto tulee yleisestä rakenteesta
